@@ -87,6 +87,24 @@ public class Converter {
             List<List<Integer>> dataList = new ArrayList<>();
             
             
+            while (iterator.hasNext()) {
+                record = iterator.next();
+                innerData = new ArrayList<>();
+                for (int i = 0; i < headers.length; ++i) { 
+                    if (i == 0) {
+                        rowArray.add(record[i]);
+                    }    
+                    else {
+                        int a = Integer.parseInt(record[i]);
+                        innerData.add(a);
+                    }
+                }
+                dataList.add(innerData);
+            }
+            
+            for (String field : headers) {
+                    colArray.add(field);
+            }
             
         }        
         catch(Exception e) { e.printStackTrace(); }
