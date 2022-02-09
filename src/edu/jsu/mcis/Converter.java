@@ -106,6 +106,14 @@ public class Converter {
                     colArray.add(field);
             }
             
+            
+            jsonObject.put("rowHeaders", rowArray);
+            jsonObject.put("data", dataList);
+            jsonObject.put("colHeaders", colArray);
+            records.add(jsonObject);
+            
+            
+            
         }        
         catch(Exception e) { e.printStackTrace(); }
         
