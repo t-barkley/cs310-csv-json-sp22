@@ -73,12 +73,9 @@ public class Converter {
             // INSERT YOUR CODE HERE
             String[] headers = iterator.next();
             
-            //JSONArray records = new JSONArray();
-            
             JSONObject jsonObject = new JSONObject();
            
             String[] record;
-            String jsonString;
             
             ArrayList<String> colArray = new ArrayList<>();
             ArrayList<String> rowArray = new ArrayList<>();
@@ -110,8 +107,6 @@ public class Converter {
             jsonObject.put("rowHeaders", rowArray);
             jsonObject.put("data", dataList);
             jsonObject.put("colHeaders", colArray);
-            //records.add(jsonObject);
-            
             
             results = JSONValue.toJSONString(jsonObject);
             
