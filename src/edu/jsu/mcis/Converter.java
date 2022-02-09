@@ -149,6 +149,31 @@ public class Converter {
                 }    
             }
             
+            String[] col = new String[colHeaders.size()];
+            
+            for (int i = 0; i < colHeaders.size(); ++i) {
+                col[i] = (String) colHeaders.get(i);
+            }
+            csvWriter.writeNext(col);
+            
+            
+            for (int i = 0; i < rowHeaders.size(); ++i) {
+                col[0] = (String) rowHeaders.get(i);
+                
+                for (int b = 0; b < (colHeaders.size() - 1); ++b) {
+                    col[b + 1] = data.get(b);
+                }
+                
+                for (int k = 1; k < colHeaders.size(); ++k) {
+                    if (data.size() > 4) {
+                        data.remove(0);
+                    }
+                }
+                csvWriter.writeNext(col);
+            }
+            
+            results = writer.toString();
+            
         }
         
         catch(Exception e) { e.printStackTrace(); }
