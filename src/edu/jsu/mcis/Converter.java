@@ -73,12 +73,12 @@ public class Converter {
             // INSERT YOUR CODE HERE
             String[] headers = iterator.next();
             
-            JSONArray records = new JSONArray();
+            //JSONArray records = new JSONArray();
             
             JSONObject jsonObject = new JSONObject();
            
             String[] record;
-            String jsonString = "";
+            String jsonString;
             
             ArrayList<String> colArray = new ArrayList<>();
             ArrayList<String> rowArray = new ArrayList<>();
@@ -110,12 +110,10 @@ public class Converter {
             jsonObject.put("rowHeaders", rowArray);
             jsonObject.put("data", dataList);
             jsonObject.put("colHeaders", colArray);
-            records.add(jsonObject);
+            //records.add(jsonObject);
             
             
-            jsonString = JSONValue.toJSONString(records);
-            
-            System.out.println(jsonString);
+            results = JSONValue.toJSONString(jsonObject);
             
         }        
         catch(Exception e) { e.printStackTrace(); }
@@ -134,7 +132,23 @@ public class Converter {
             CSVWriter csvWriter = new CSVWriter(writer, ',', '"', '\\', "\n");
             
             // INSERT YOUR CODE HERE
-
+            JSONParser parser = new JSONParser();
+            
+            JSONObject jsonObject = (JSONObject)parser.parse(jsonString);
+            
+            ArrayList<String> colHeaders = (ArrayList) jsonObject.get("colHeaders");
+            ArrayList<String> rowHeaders = (ArrayList) jsonObject.get("rowHeaders");
+            ArrayList<String> data = new ArrayList<>();
+            
+            List<List<Integer>> dataList;
+            dataList = (ArrayList) jsonObject.get("data");
+            
+            for (List innerlist: dataList) {
+                for (Object j: innerlist) {
+                    data.add(j.toString());
+                }    
+            }
+            
         }
         
         catch(Exception e) { e.printStackTrace(); }
