@@ -113,6 +113,9 @@ public class Converter {
             records.add(jsonObject);
             
             
+            jsonString = JSONValue.toJSONString(records);
+            
+            System.out.println(jsonString);
             
         }        
         catch(Exception e) { e.printStackTrace(); }
