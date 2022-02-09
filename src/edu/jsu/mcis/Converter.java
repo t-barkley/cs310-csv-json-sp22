@@ -71,6 +71,22 @@ public class Converter {
             Iterator<String[]> iterator = full.iterator();
             
             // INSERT YOUR CODE HERE
+            String[] headers = iterator.next();
+            
+            JSONArray records = new JSONArray();
+            
+            JSONObject jsonObject = new JSONObject();
+           
+            String[] record;
+            String jsonString = "";
+            
+            ArrayList<String> colArray = new ArrayList<>();
+            ArrayList<String> rowArray = new ArrayList<>();
+            
+            List<Integer> innerData;
+            List<List<Integer>> dataList = new ArrayList<>();
+            
+            
             
         }        
         catch(Exception e) { e.printStackTrace(); }
@@ -89,7 +105,7 @@ public class Converter {
             CSVWriter csvWriter = new CSVWriter(writer, ',', '"', '\\', "\n");
             
             // INSERT YOUR CODE HERE
-            
+
         }
         
         catch(Exception e) { e.printStackTrace(); }
